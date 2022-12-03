@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="true"
+         monitoring="autodetect" dynamicConfig="true" xsi:schemaLocation="https://www.w3.org/2001/XMLSchema-instance ">
+
+    <defaultCache eternal="false" timeToLiveSeconds="60"
+                  memoryStoreEvictionPolicy="LRU" statistics="true" maxElementsInMemory="10000"
+                  overflowToDisk="false"/>
+
+    <cache name="employee" maxEntriesLocalHeap="10000" eternal="false"
+           timeToIdleSeconds="100" timeToLiveSeconds="100"
+           memoryStoreEvictionPolicy="LRU" statistics="true">
+    </cache>
+
+    <cache name="user" maxEntriesLocalHeap="10000" eternal="false"
+           timeToIdleSeconds="100" timeToLiveSeconds="100"
+           memoryStoreEvictionPolicy="LRU" statistics="true">
+    </cache>
+
+    <cache name="lottDetails" maxEntriesLocalHeap="10000" eternal="false"
+           timeToIdleSeconds="100" timeToLiveSeconds="100"
+           memoryStoreEvictionPolicy="LRU" statistics="true">
+    </cache>
+
+    <cache name="ruffDetails" maxEntriesLocalHeap="10000" eternal="false"
+           timeToIdleSeconds="100" timeToLiveSeconds="100"
+           memoryStoreEvictionPolicy="LRU" statistics="true">
+    </cache>
+
+    <cache name="diamondDepartment" maxEntriesLocalHeap="10000" eternal="false"
+           timeToIdleSeconds="100" timeToLiveSeconds="100"
+           memoryStoreEvictionPolicy="LRU" statistics="true">
+    </cache>
+
+
+</ehcache>

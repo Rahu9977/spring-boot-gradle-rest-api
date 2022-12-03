@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="0" author="Rahul">
+        <preConditions onFail="MARK_RAN" onFailMessage="already exists">
+            <sqlCheck expectedResult="0">
+                SELECT count(*)
+                FROM information_schema.tables
+                WHERE table_schema = 'emp'
+                AND table_name = 'employees'
+                LIMIT 1;
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            CREATE TABLE employees (
+            id BIGINT NOT NULL AUTO_INCREMENT,
+            full_name VARCHAR(256) NOT NULL,
+            email VARCHAR(64) NOT NULL,
+            mobile VARCHAR(15) NOT NULL,
+            father_mobile VARCHAR(15) NOT NULL,
+            address VARCHAR(256) NOT NULL,
+            employee_type VARCHAR(64) NOT NULL,
+            employee_shift VARCHAR(64) NOT NULL,
+            created TIMESTAMP default CURRENT_TIMESTAMP,
+            updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            deleted BIT(1) NOT NULL DEFAULT false,
+            UNIQUE KEY(email),
+            PRIMARY KEY (id)
+            );
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
